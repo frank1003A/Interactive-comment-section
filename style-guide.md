@@ -1,0 +1,40 @@
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+> 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.
+
+## Colors
+
+### Primary
+
+- Moderate blue: indigo-700
+- Soft Red: red-400
+- Light grayish blue: violet-300
+- Pale red: rose-300
+
+### Neutral
+
+- Dark blue: slate-700
+- Grayish Blue: gray-500
+- Light gray: slate-200
+- Very light gray: slate-100
+- White: white
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 16px
+
+### Font
+
+- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
+- Weights: 400, 500, 700
+
+> 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma.
