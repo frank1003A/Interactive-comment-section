@@ -25,7 +25,7 @@ const Score = ({ defaultScore }) => {
           aria-label="up score"
           onClick={upScore}
         >
-          <img src="/images/icon-plus.svg" className="font-bold" />
+          <img src="../../images/icon-plus.svg" className="font-bold" />
         </button>
         <span className="text-[14px] font-bold text-indigo-700 dark:text-yellow-500">
           {score}
@@ -36,7 +36,7 @@ const Score = ({ defaultScore }) => {
           aria-label="down score"
           onClick={downScore}
         >
-          <img src="/images/icon-minus.svg" className="font-bold" />
+          <img src="../../images/icon-minus.svg" className="font-bold" />
         </button>
       </div>
     </div>
