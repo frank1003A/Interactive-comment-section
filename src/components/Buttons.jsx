@@ -10,7 +10,7 @@ export const ReplyButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <img src="/images/icon-reply.svg" className="font-bold" />
+      <img src="../../images/icon-reply.svg" className="font-bold" />
       {children}
     </button>
   );
@@ -25,7 +25,7 @@ export const DeleteButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <img src="/images/icon-delete.svg" className="font-bold" />
+      <img src="../../images/icon-delete.svg" className="font-bold" />
       {children}
     </button>
   );
@@ -40,7 +40,7 @@ export const EditButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <img src="/images/icon-edit.svg" className="font-bold" />
+      <img src="../../images/icon-edit.svg" className="font-bold" />
       {children}
     </button>
   );
