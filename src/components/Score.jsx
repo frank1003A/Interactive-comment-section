@@ -20,23 +20,23 @@ const Score = ({ defaultScore }) => {
     <div className="bg-slate-200 dark:bg-neutral-600 p-1 max-w-[120px] h-[40px] md:h-[100px]  md:max-w-[40px] w-full rounded-lg">
       <div className="flex flex-row-reverse md:flex-col gap-2 justify-between items-center h-full">
         <button
-          className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px]"
+          className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"
           aria-hidden
           aria-label="up score"
           onClick={upScore}
         >
-          +
+          <img src="/images/icon-plus.svg" className="font-bold" />
         </button>
         <span className="text-[14px] font-bold text-indigo-700 dark:text-yellow-500">
           {score}
         </span>
         <button
-          className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px]"
+          className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"
           aria-hidden
           aria-label="down score"
           onClick={downScore}
         >
-          -
+          <img src="/images/icon-minus.svg" className="font-bold" />
         </button>
       </div>
     </div>

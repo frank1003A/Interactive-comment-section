@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { Pencil1Icon, ResetIcon, TrashIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 
 export const ReplyButton = ({ className, children, ...rest }) => {
@@ -11,7 +10,7 @@ export const ReplyButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <ResetIcon className="font-bold" />
+      <img src="/images/icon-reply.svg" className="font-bold" />
       {children}
     </button>
   );
@@ -26,7 +25,7 @@ export const DeleteButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <TrashIcon />
+      <img src="/images/icon-delete.svg" className="font-bold" />
       {children}
     </button>
   );
@@ -41,7 +40,7 @@ export const EditButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <Pencil1Icon />
+      <img src="/images/icon-edit.svg" className="font-bold" />
       {children}
     </button>
   );
