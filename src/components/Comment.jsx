@@ -3,6 +3,7 @@ import { QuoteIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { currentUser } from "../data/data.json";
+import useDynamicImageImport from "../hooks/useDynamicImageImport";
 import { Button, DeleteButton, EditButton, ReplyButton } from "./Buttons";
 import Card from "./Card";
 import ReplyBox from "./ReplyBox";
@@ -27,6 +28,7 @@ const Comment = ({
   const [editing, setEditing] = useState(false);
   const [quoteContent] = useState(content);
   const [active] = useState(cIndex);
+  const { avatarSrc } = useDynamicImageImport(avatar);
 
   const toggleComment = () => {
     setReply(!reply);
@@ -93,7 +95,7 @@ const Comment = ({
             <div className="flex items-center gap-3 justify-start">
               <img
                 className="h-8 w-8 rounded-full"
-                src={avatar}
+                src={avatarSrc}
                 alt={`${username}'s avatar`}
               />
               <span className="text-sm font-bold">{username}</span>
