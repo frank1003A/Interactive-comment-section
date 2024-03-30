@@ -160,7 +160,7 @@ function App() {
   return (
     <>
       <h1 className="sr-only">Interactive Comment Section</h1>
-      <main className="flex items-center justify-center w-full h-full p-6 md:py-20 md:px-0 dark:bg-neutral-800">
+      <main className="flex items-center justify-center w-full h-full p-3 lg:p-6 md:py-20 md:px-0 dark:bg-neutral-800">
         <div className="flex flex-col gap-5 max-w-screen-sm">
           {comments.map((comment, cIndex) => {
             return (
