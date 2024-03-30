@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import clsx from "clsx";
+import IconDelete from "../../images/icon-delete.svg";
+import IconEdit from "../../images/icon-edit.svg";
+import IconReply from "../../images/icon-reply.svg";
 
 export const ReplyButton = ({ className, children, ...rest }) => {
   return (
@@ -10,7 +13,7 @@ export const ReplyButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <img src="../../images/icon-reply.svg" className="font-bold" />
+      <img src={IconReply} className="font-bold" />
       {children}
     </button>
   );
@@ -25,7 +28,7 @@ export const DeleteButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <img src="../../images/icon-delete.svg" className="font-bold" />
+      <img src={IconDelete} className="font-bold" />
       {children}
     </button>
   );
@@ -40,7 +43,7 @@ export const EditButton = ({ className, children, ...rest }) => {
         className
       )}
     >
-      <img src="../../images/icon-edit.svg" className="font-bold" />
+      <img src={IconEdit} className="font-bold" />
       {children}
     </button>
   );
