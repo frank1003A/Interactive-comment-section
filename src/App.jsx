@@ -182,7 +182,7 @@ function App() {
                 {Array.isArray(comment.replies) &&
                 comment.replies.length !== 0 ? (
                   <div className="flex">
-                    <div className="w-0 border-r-2 mx-6 mt-5 dark:border-r-[#555]" />
+                    <div className="w-0 border-r-2 mx-4 md:mx-6 mt-5 dark:border-r-[#555]" />
                     <div className="flex flex-col gap-5 mt-5 w-full">
                       {comment.replies.map((reply, rIndex) => {
                         return (
