@@ -2,6 +2,7 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { currentUser } from "../data/data.json";
+import useDynamicImageImport from "../hooks/useDynamicImageImport";
 import { Button } from "./Buttons";
 import Card from "./Card";
 
@@ -17,18 +18,20 @@ const CommentBox = ({
   const [shouldScrollIntoView, setShouldScrollIntoView] = useState(false);
   const inputRef = useRef(null);
   const componentRef = useRef(null);
+  const { avatarSrc } = useDynamicImageImport(currentUser.image.png);
 
   useEffect(() => {
     if (shouldScrollIntoView && componentRef.current) {
       componentRef.current.scrollIntoView({ behavior: "smooth" });
       inputRef.current.focus();
-      setShouldScrollIntoView(false); // Reset the state after scrolling
+      setShouldScrollIntoView(false);
     }
   }, [shouldScrollIntoView]);
 
   useEffect(() => {
     setShouldScrollIntoView(true);
   }, [quote]);
+
   return (
     <Card ref={componentRef} className={"animate-in slide-in-from-top "}>
       <form className="w-full flex flex-col gap-3">
@@ -40,7 +43,7 @@ const CommentBox = ({
         <div className="flex gap-2 w-full">
           <img
             className="h-8 w-8 rounded-full hidden lg:block"
-            src={currentUser.image.png}
+            src={avatarSrc}
             alt={`${currentUser.username}'s avatar`}
           />
           <label className="sr-only">Post a Comment</label>
@@ -66,7 +69,7 @@ const CommentBox = ({
         <div className="w-full flex justify-between lg:hidden">
           <img
             className="h-8 w-8 rounded-full"
-            src={currentUser.image.png}
+            src={avatarSrc}
             alt={`${currentUser.username}'s avatar`}
           />
           <Button

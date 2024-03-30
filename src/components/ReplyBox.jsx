@@ -2,6 +2,7 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { currentUser } from "../data/data.json";
+import useDynamicImageImport from "../hooks/useDynamicImageImport";
 import { Button } from "./Buttons";
 import Card from "./Card";
 
@@ -9,6 +10,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
   const [reply, setReply] = useState("");
   const [activeComment] = useState(cIndex);
   const [activeReply] = useState(rIndex);
+  const { avatarSrc } = useDynamicImageImport(currentUser.image.png);
 
   const handleReply = (e) => {
     let text = e.currentTarget.textContent.slice(replyingTO.length + 2);
@@ -67,11 +69,11 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
 
   return (
     <Card className={"animate-in slide-in-from-top "}>
-      <form className="w-full">
+      <form className="w-full flex flex-col gap-3 lg:gap-0">
         <div className="flex gap-2 w-full">
           <img
-            className="h-8 w-8 rounded-full"
-            src={currentUser.image.png}
+            className="h-8 w-8 rounded-full hidden lg:block"
+            src={avatarSrc}
             alt={`${currentUser.username}'s avatar`}
           />
           <div
@@ -94,10 +96,25 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
           <Button
             id="replybtn"
             type="submit"
+            className={"hidden lg:flex"}
             disabled={!reply ? true : false}
             onClick={formSubmit}
           >
             Reply
+          </Button>
+        </div>
+        <div className="w-full flex justify-between lg:hidden">
+          <img
+            className="h-8 w-8 rounded-full"
+            src={avatarSrc}
+            alt={`${currentUser.username}'s avatar`}
+          />
+          <Button
+            type="submit"
+            disabled={!reply ? true : false}
+            onClick={formSubmit}
+          >
+            SEND
           </Button>
         </div>
       </form>
