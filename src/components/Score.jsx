@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import IconMinus from "../../images/icon-minus.svg";
+import IconPlus from "../../images/icon-plus.svg";
 
 const Score = ({ defaultScore }) => {
   const [score, setScore] = useState(defaultScore);
@@ -22,10 +24,10 @@ const Score = ({ defaultScore }) => {
         <button
           className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"
           aria-hidden
-          aria-label="up score"
+          aria-label="Increase score"
           onClick={upScore}
         >
-          <img src="../../images/icon-plus.svg" className="font-bold" />
+          <img src={IconPlus} className="font-bold" />
         </button>
         <span className="text-[14px] font-bold text-indigo-700 dark:text-yellow-500">
           {score}
@@ -33,10 +35,10 @@ const Score = ({ defaultScore }) => {
         <button
           className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"
           aria-hidden
-          aria-label="down score"
+          aria-label="Decrease score"
           onClick={downScore}
         >
-          <img src="../../images/icon-minus.svg" className="font-bold" />
+          <img src={IconMinus} className="font-bold" />
         </button>
       </div>
     </div>
