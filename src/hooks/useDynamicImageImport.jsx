@@ -8,7 +8,10 @@ const useDynamicImageImport = (path) => {
 
     const importImage = async () => {
       try {
-        const module = await import(path);
+        const baseUrl = "https://interactive-comment-section-delta.vercel.app";
+        const fullPath = `${baseUrl}${path}`;
+        console.log("Importing image from:", fullPath);
+        const module = await import(/* webpackMode: "eager" */ `${fullPath}`);
         setAvatarSrc(module.default);
       } catch (error) {
         console.error("Error importing image:", error);
