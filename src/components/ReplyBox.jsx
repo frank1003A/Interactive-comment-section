@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { currentUser } from "../data/data.json";
-import useDynamicImageImport from "../hooks/useDynamicImageImport";
+import { getImage } from "../utils/image-utils";
 import { Button } from "./Buttons";
 import Card from "./Card";
 
@@ -10,7 +10,6 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
   const [reply, setReply] = useState("");
   const [activeComment] = useState(cIndex);
   const [activeReply] = useState(rIndex);
-  const { avatarSrc } = useDynamicImageImport(currentUser.image.png);
 
   const handleReply = (e) => {
     let text = e.currentTarget.textContent.slice(replyingTO.length + 2);
@@ -71,11 +70,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
     <Card className={"animate-in slide-in-from-top "}>
       <form className="w-full flex flex-col gap-3 lg:gap-0">
         <div className="flex gap-2 w-full">
-          <img
-            className="h-8 w-8 rounded-full hidden lg:block"
-            src={avatarSrc}
-            alt={`${currentUser.username}'s avatar`}
-          />
+          {getImage(currentUser.image.png, currentUser.username)}
           <div
             ref={editorRef}
             contentEditable
@@ -104,11 +99,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
           </Button>
         </div>
         <div className="w-full flex justify-between lg:hidden">
-          <img
-            className="h-8 w-8 rounded-full"
-            src={avatarSrc}
-            alt={`${currentUser.username}'s avatar`}
-          />
+          {getImage(currentUser.image.png, currentUser.username)}
           <Button
             type="submit"
             disabled={!reply ? true : false}
