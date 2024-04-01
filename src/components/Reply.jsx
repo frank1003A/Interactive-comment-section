@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import "tippy.js/animations/scale.css";
 import { currentUser } from "../data/data.json";
-import useDynamicImageImport from "../hooks/useDynamicImageImport";
+import { getImage } from "../utils/image-utils";
 import { Button, DeleteButton, EditButton, ReplyButton } from "./Buttons";
 import Card from "./Card";
 import ReplyBox from "./ReplyBox";
@@ -44,8 +44,6 @@ const Reply = ({
   const [reply, setReply] = useState("");
 
   const [comment, setComment] = useState(false);
-
-  const { avatarSrc } = useDynamicImageImport(avatar);
 
   const toggleComment = () => {
     setComment(!comment);
@@ -101,11 +99,7 @@ const Reply = ({
         <div className="flex flex-col gap-3 w-full dark:text-white">
           <div className="flex items-center justify-start gap-2">
             <div className="flex items-center gap-3 justify-start">
-              <img
-                className="h-8 w-8 rounded-full"
-                src={avatarSrc}
-                alt={`${username}'s avatar`}
-              />
+              {getImage(avatar, username)}
               <span className="text-sm font-bold">{username}</span>
             </div>
             {isMe(username) && (
