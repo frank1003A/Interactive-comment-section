@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { currentUser } from "../data/data.json";
-import useDynamicImageImport from "../hooks/useDynamicImageImport";
+import { getImage } from "../utils/image-utils";
 import { Button } from "./Buttons";
 import Card from "./Card";
 
@@ -18,8 +18,6 @@ const CommentBox = ({
   const [shouldScrollIntoView, setShouldScrollIntoView] = useState(false);
   const inputRef = useRef(null);
   const componentRef = useRef(null);
-  const { avatarSrc } = useDynamicImageImport(currentUser.image.png);
-
   useEffect(() => {
     if (shouldScrollIntoView && componentRef.current) {
       componentRef.current.scrollIntoView({ behavior: "smooth" });
@@ -41,11 +39,7 @@ const CommentBox = ({
           </div>
         ) : null}
         <div className="flex gap-2 w-full">
-          <img
-            className="h-8 w-8 rounded-full hidden lg:block"
-            src={avatarSrc}
-            alt={`${currentUser.username}'s avatar`}
-          />
+          {getImage(currentUser.image.png, currentUser.username)}
           <label className="sr-only">Post a Comment</label>
           <textarea
             ref={inputRef}
@@ -67,11 +61,7 @@ const CommentBox = ({
           </Button>
         </div>
         <div className="w-full flex justify-between lg:hidden">
-          <img
-            className="h-8 w-8 rounded-full"
-            src={avatarSrc}
-            alt={`${currentUser.username}'s avatar`}
-          />
+          {getImage(currentUser.image.png, currentUser.username)}
           <Button
             type="submit"
             disabled={!comment ? true : false}
