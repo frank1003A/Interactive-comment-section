@@ -63,19 +63,19 @@ const Comment = ({
     >
       <Card
         className={clsx(
-          "group  z-10 gap-3 animate-in zoom-in relative"
-          /**!reply && "animate-in zoom-in",*/
-          // reply && "animate-in zoom-in"
+          "group  z-10 gap-3 animate-in zoom-in relative",
+          !reply && "animate-in zoom-in",
+          reply && "animate-in zoom-in"
         )}
       >
-        <div className="w-full lg:w-fit flex items-center justify-between">
+        <div className="w-full md:w-fit flex items-center justify-between">
           <Score defaultScore={score} />
-          <div className="ml-auto lg:hidden">
+          <div className="ml-auto md:hidden">
             {!isMe(username) && (
               <ReplyButton onClick={toggleComment}>Reply</ReplyButton>
             )}
           </div>
-          <div className={"flex items-center gap-3 lg:hidden"}>
+          <div className={"flex items-center gap-3 md:hidden"}>
             {isMe(username) && (
               <DeleteButton onClick={onDelete}>Delete</DeleteButton>
             )}
@@ -101,8 +101,8 @@ const Comment = ({
               </div>
             )}
             <span className="text-sm">{createdAt}</span>
-            <div className="ml-auto hidden lg:flex items-center gap-3">
-              <div className="hidden lg:block">
+            <div className="ml-auto hidden md:flex items-center gap-3">
+              <div className="hidden md:block">
                 {!isMe(username) && (
                   <ReplyButton onClick={toggleComment}>Reply</ReplyButton>
                 )}
