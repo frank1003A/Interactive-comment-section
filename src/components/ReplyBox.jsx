@@ -68,9 +68,9 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
 
   return (
     <Card className={"animate-in slide-in-from-top "}>
-      <form className="w-full flex flex-col gap-3 lg:gap-0">
+      <form className="w-full flex flex-col gap-3 md:gap-0">
         <div className="flex gap-2 w-full">
-          {getImage(currentUser.image.png, currentUser.username)}
+          {getImage(currentUser.image.png, currentUser.username, true)}
           <div
             ref={editorRef}
             contentEditable
@@ -91,14 +91,14 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
           <Button
             id="replybtn"
             type="submit"
-            className={"hidden lg:flex"}
+            className={"hidden md:flex"}
             disabled={!reply ? true : false}
             onClick={formSubmit}
           >
             Reply
           </Button>
         </div>
-        <div className="w-full flex justify-between lg:hidden">
+        <div className="w-full flex justify-between md:hidden">
           {getImage(currentUser.image.png, currentUser.username)}
           <Button
             type="submit"
@@ -114,35 +114,3 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
 };
 
 export default ReplyBox;
-
-/** <form className="w-full">
-        <div className="flex gap-2 w-full">
-          <img
-            className="h-8 w-8 rounded-full"
-            src={currentUser.image.png}
-            alt={`${currentUser.username}'s avatar`}
-          />
-          <label htmlFor="replyinput" id="replylabel" className="sr-only">
-            Reply to comment
-          </label>
-          <textarea
-            id="replyinput"
-            aria-describedby="replylabel"
-            autoFocus
-            onChange={handleReply}
-            placeholder="Add a comment..."
-            defaultValue={`${!isMain || replyingTO ? `@` + replyingTO : ""}`}
-            className={clsx(
-              "text-[14px] relative focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 max-h-[100px] min-h-[100px] w-full py-2 px-3 border rounded-md"
-            )}
-          ></textarea>
-          <button
-            type="submit"
-            className="hover:opacity-30 p-3 h-9 flex items-center justify-center rounded-md center bg-indigo-700 text-white disabled:opacity-25"
-            disabled={comment && comment.length === 0 ? true : false}
-            onClick={(e) => addReply(e, reply, index)}
-          >
-            Reply
-          </button>
-        </div>
-      </form> */

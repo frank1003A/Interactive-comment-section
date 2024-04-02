@@ -75,14 +75,14 @@ const Reply = ({
   return (
     <div id="replytoreply" className="h-fit flex flex-col relative gap-2">
       <Card className={"group animate-in zoom-in relative z-20"}>
-        <div className="w-full lg:w-fit flex items-center justify-between">
+        <div className="w-full md:w-fit flex items-center justify-between">
           <Score defaultScore={score} />
-          <div className="ml-auto lg:hidden">
+          <div className="ml-auto md:hidden">
             {!isMe(username) && (
               <ReplyButton onClick={toggleComment}>Reply</ReplyButton>
             )}
           </div>
-          <div className={"flex items-center gap-3 lg:hidden"}>
+          <div className={"flex items-center gap-3 md:hidden"}>
             {isMe(username) && (
               <DeleteButton onClick={onDelete}>Delete</DeleteButton>
             )}
@@ -108,7 +108,7 @@ const Reply = ({
               </div>
             )}
             <span className="text-sm">{createdAt}</span>
-            <div className="ml-auto items-center gap-3 hidden lg:flex">
+            <div className="ml-auto items-center gap-3 hidden md:flex">
               {!isMe(username) && (
                 <ReplyButton onClick={toggleComment}>Reply</ReplyButton>
               )}
