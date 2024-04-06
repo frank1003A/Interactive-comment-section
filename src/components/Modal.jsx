@@ -37,7 +37,10 @@ const CancelModal = ({ open, onCloseModal, handleDelete }) => {
           <Button className={"bg-gray-500"} onClick={onCloseModal}>
             NO, CANCEL
           </Button>
-          <Button className={"bg-red-400"} onClick={handleDelete}>
+          <Button
+            className={"bg-red-400 dark:bg-red-400"}
+            onClick={handleDelete}
+          >
             YES, DELETE
           </Button>
         </div>

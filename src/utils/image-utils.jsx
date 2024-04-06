@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 export function getImageUrl(name) {
-  return new URL(`${name}`, import.meta.url);
+  return new URL(name, import.meta.url);
 }
 
 export const getImage = (image, name, isHidden = false) => {

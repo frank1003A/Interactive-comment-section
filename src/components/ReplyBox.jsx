@@ -81,7 +81,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
             onInput={handleReply}
             placeholder="Add a comment..."
             className={clsx(
-              "text-[14px] dark:text-white relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] min-h-[100px] w-full py-2 px-3 border dark:border-[#555] rounded-md dark:bg-transparent"
+              "overflow-hidden overflow-y-auto text-[14px] dark:text-white relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] min-h-[100px] w-full py-2 px-3 border dark:border-[#555] rounded-md dark:bg-transparent"
             )}
           >
             <span ref={fixedTextRef}>

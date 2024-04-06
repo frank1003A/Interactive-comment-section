@@ -68,7 +68,7 @@ const Comment = ({
           reply && "animate-in zoom-in"
         )}
       >
-        <div className="w-full md:w-fit flex items-center justify-between">
+        <div className="w-full md:w-fit flex items-start justify-between">
           <Score defaultScore={score} />
           <div className="ml-auto md:hidden">
             {!isMe(username) && (
@@ -119,6 +119,17 @@ const Comment = ({
                 </EditButton>
               )}
             </div>
+            {!isMe(username) && (
+              <button
+                aria-label="Sun Settings"
+                className={clsx(
+                  "md:hidden ml-auto flex items-center justify-center w-8 h-8 rounded-md bg-indigo-700 dark:bg-yellow-500 text-white"
+                )}
+                onClick={quoteComment}
+              >
+                <QuoteIcon className="h-4 w-4" />
+              </button>
+            )}
           </div>
           {quoteValue ? (
             <div className="text-[14px] bg-slate-100 dark:bg-neutral-800/30 dark:text-white border-l-4 p-3 rounded-md border-indigo-700 dark:border-yellow-500">
@@ -148,7 +159,7 @@ const Comment = ({
           <button
             aria-label="Sun Settings"
             className={clsx(
-              "opacity-0 group-hover:opacity-100 focus:opacity-100 flex transition-all items-center justify-center shadow-2xl absolute -right-5 top-1/2 transform -translate-y-1/2 z-20 w-8 h-8 rounded-md bg-indigo-700 dark:bg-yellow-500 text-white"
+              "hidden opacity-0 group-hover:opacity-100 focus:opacity-100 lg:flex transition-all items-center justify-center shadow-2xl absolute -right-5 top-1/2 transform -translate-y-1/2 z-20 w-8 h-8 rounded-md bg-indigo-700 dark:bg-yellow-500 text-white"
             )}
             onClick={quoteComment}
           >
