@@ -28,7 +28,6 @@ const ToolTipContent = ({ username, avatar }) => {
 
 // eslint-disable-next-line react/prop-types
 const Reply = ({
-  avatar,
   createdAt,
   username,
   content,
@@ -103,7 +102,7 @@ const Reply = ({
         <div className="flex flex-col gap-3 dark:text-white w-full">
           <div className="flex items-center justify-start gap-2">
             <div className="flex items-center gap-3 justify-start">
-              {getImage(avatar, username)}
+              {getImage(username)}
               <span className="text-sm font-bold">{username}</span>
             </div>
             {isMe(username) && (

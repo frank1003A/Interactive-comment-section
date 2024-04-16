@@ -70,7 +70,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
     <Card className={"animate-in slide-in-from-top max-w-sm"}>
       <form className="w-full flex flex-col gap-3 md:gap-0">
         <div className="flex gap-2 w-full">
-          {getImage(currentUser.image.png, currentUser.username, true)}
+          {getImage(currentUser.username, true)}
           <div
             ref={editorRef}
             contentEditable
@@ -99,7 +99,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
           </Button>
         </div>
         <div className="w-full flex justify-between md:hidden">
-          {getImage(currentUser.image.png, currentUser.username)}
+          {getImage(currentUser.username)}
           <Button
             type="submit"
             disabled={!reply ? true : false}
