@@ -11,7 +11,6 @@ import Score from "./Score";
 
 // eslint-disable-next-line react/prop-types
 const Comment = ({
-  avatar,
   createdAt,
   username,
   content,
@@ -92,7 +91,7 @@ const Comment = ({
         <div className="flex flex-col gap-3 w-full dark:text-white">
           <div className="flex items-center justify-start gap-2 w-full">
             <div className="flex items-center gap-3 justify-start">
-              {getImage(avatar, username)}
+              {getImage(username)}
               <span className="text-sm font-bold">{username}</span>
             </div>
             {isMe(username) && (

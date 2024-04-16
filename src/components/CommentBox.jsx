@@ -39,7 +39,7 @@ const CommentBox = ({
           </div>
         ) : null}
         <div className="flex gap-2 w-full">
-          {getImage(currentUser.image.png, currentUser.username, true)}
+          {getImage(currentUser.username, true)}
           <label className="sr-only">Post a Comment</label>
           <textarea
             ref={inputRef}
@@ -61,7 +61,7 @@ const CommentBox = ({
           </Button>
         </div>
         <div className="w-full flex justify-between md:hidden">
-          {getImage(currentUser.image.png, currentUser.username)}
+          {getImage(currentUser.username)}
           <Button
             type="submit"
             disabled={!comment ? true : false}
