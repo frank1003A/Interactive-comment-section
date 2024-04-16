@@ -19,7 +19,7 @@ const Score = ({ defaultScore }) => {
     setScore((prev) => prev - 1);
   };
   return (
-    <div className="bg-slate-200 dark:bg-neutral-600 p-1 max-w-[120px] h-[40px] md:h-[100px]  md:max-w-[40px] w-full rounded-lg">
+    <div className="bg-slate-200 dark:bg-neutral-600 p-1 max-w-[100px] h-[40px] md:h-[100px]  md:max-w-[40px] w-full rounded-lg">
       <div className="flex flex-row-reverse md:flex-col gap-2 justify-between items-center h-full">
         <button
           className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"

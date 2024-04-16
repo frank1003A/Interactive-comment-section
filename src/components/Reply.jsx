@@ -85,7 +85,7 @@ const Reply = ({
               <ReplyButton onClick={toggleComment}>Reply</ReplyButton>
             )}
           </div>
-          <div className={"flex items-center gap-3 md:hidden"}>
+          <div className={"flex items-center h-full gap-1 md:gap-3 md:hidden"}>
             {isMe(username) && (
               <DeleteButton onClick={onDelete}>Delete</DeleteButton>
             )}
@@ -111,7 +111,7 @@ const Reply = ({
               </div>
             )}
             <span className="text-sm">{createdAt}</span>
-            <div className="ml-auto items-center gap-3 hidden md:flex">
+            <div className="ml-auto items-center gap-3 hidden md:flex ">
               {!isMe(username) && (
                 <ReplyButton onClick={toggleComment}>Reply</ReplyButton>
               )}
