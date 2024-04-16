@@ -33,6 +33,7 @@ const Reply = ({
   username,
   content,
   replyingTo,
+  repImage,
   score,
   onEdit,
   onDelete,
@@ -73,9 +74,12 @@ const Reply = ({
   }, [addReply]);
 
   return (
-    <div id="replytoreply" className="h-fit flex flex-col relative gap-2">
-      <Card className={"group animate-in zoom-in relative z-20"}>
-        <div className="w-full md:w-fit flex items-center justify-between">
+    <div
+      id="replytoreply"
+      className="transition-all h-fit flex flex-col relative gap-2"
+    >
+      <Card className={"group animate-in zoom-in relative z-20  w-full"}>
+        <div className="w-full md:w-fit flex items-start justify-between">
           <Score defaultScore={score} />
           <div className="ml-auto md:hidden">
             {!isMe(username) && (
@@ -96,7 +100,7 @@ const Reply = ({
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-3 w-full dark:text-white">
+        <div className="flex flex-col gap-3 dark:text-white w-full">
           <div className="flex items-center justify-start gap-2">
             <div className="flex items-center gap-3 justify-start">
               {getImage(avatar, username)}
@@ -125,7 +129,39 @@ const Reply = ({
               )}
             </div>
           </div>
-          <span className="text-[14px]">
+          {isMe(username) && editing && (
+            <form className="flex flex-col gap-2 w-full">
+              <textarea
+                autoFocus
+                defaultValue={
+                  replyingTo ? `@` + replyingTo + " " + content : "" + content
+                }
+                onChange={handleReply}
+                placeholder="Add a comment..."
+                className={clsx(
+                  "text-[14px] relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] dark:border-[#555] bg-transparent  min-h-[100px] w-full py-2 px-3 border rounded-md"
+                )}
+              ></textarea>
+              <div className="w-full flex">
+                <div className="ml-auto flex gap-2">
+                  <Button
+                    className="bg-red-200"
+                    onClick={() => setEditing(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="ml-auto"
+                    onClick={(e) => onEdit(e, reply)}
+                  >
+                    UPDATE
+                  </Button>
+                </div>
+              </div>
+            </form>
+          )}
+          <span className="text-[14px] break-all">
             {!editing && (
               <>
                 <Tippy
@@ -135,7 +171,7 @@ const Reply = ({
                   className="bg-slate-200 border-2 dark:bg-neutral-700 border-indigo-700 dark:border-yellow-500 text-black dark:text-white shadow-xl"
                   arrow={false}
                   content={
-                    <ToolTipContent username={username} avatar={avatar} />
+                    <ToolTipContent username={replyingTo} avatar={repImage} />
                   }
                 >
                   <span className="text-indigo-700 dark:text-yellow-500 font-bold leading-6">
@@ -144,28 +180,6 @@ const Reply = ({
                 </Tippy>
                 {content}
               </>
-            )}
-            {isMe(username) && editing && (
-              <form className="flex flex-col gap-2">
-                <textarea
-                  autoFocus
-                  defaultValue={
-                    replyingTo ? `@` + replyingTo + " " + content : "" + content
-                  }
-                  onChange={handleReply}
-                  placeholder="Add a comment..."
-                  className={clsx(
-                    "text-[14px] relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] dark:border-[#555] bg-transparent  min-h-[100px] w-full py-2 px-3 border rounded-md"
-                  )}
-                ></textarea>
-                <Button
-                  type="submit"
-                  className="ml-auto"
-                  onClick={(e) => onEdit(e, reply)}
-                >
-                  UPDATE
-                </Button>
-              </form>
             )}
           </span>
         </div>

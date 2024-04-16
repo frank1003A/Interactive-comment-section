@@ -2,7 +2,8 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-const ThemeSwitcher = () => {
+// eslint-disable-next-line react/prop-types
+const ThemeSwitcher = ({ position }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -24,7 +25,8 @@ const ThemeSwitcher = () => {
       role="button"
       onClick={toggleDarkMode}
       className={clsx(
-        "fixed bottom-10 left-8 z-50 bg-indigo-700 dark:bg-yellow-500 p-2 rounded-md shadow-lg"
+        " bg-indigo-700 dark:bg-yellow-500 p-2 rounded-md shadow-lg",
+        position === "fixed" || !position ? "fixed bottom-10 left-8 z-50" : ""
       )}
     >
       <DarkModeSwitch

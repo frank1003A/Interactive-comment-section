@@ -67,7 +67,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
   };
 
   return (
-    <Card className={"animate-in slide-in-from-top "}>
+    <Card className={"animate-in slide-in-from-top max-w-sm"}>
       <form className="w-full flex flex-col gap-3 md:gap-0">
         <div className="flex gap-2 w-full">
           {getImage(currentUser.image.png, currentUser.username, true)}
@@ -81,7 +81,7 @@ const ReplyBox = ({ replyingTO, addReply, isMain, cIndex, rIndex }) => {
             onInput={handleReply}
             placeholder="Add a comment..."
             className={clsx(
-              "overflow-hidden overflow-y-auto text-[14px] dark:text-white relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] min-h-[100px] w-full py-2 px-3 border dark:border-[#555] rounded-md dark:bg-transparent"
+              "max-w-full w-full overflow-x-hidden overflow-y-auto text-[14px] dark:text-white relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] min-h-[100px] py-2 px-3 border dark:border-[#555] rounded-md dark:bg-transparent"
             )}
           >
             <span ref={fixedTextRef}>
