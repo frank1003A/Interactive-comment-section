@@ -132,27 +132,38 @@ const Comment = ({
             )}
           </div>
           {quoteValue ? (
-            <div className="text-[14px] bg-slate-100 dark:bg-neutral-800/30 dark:text-white border-l-4 p-3 rounded-md border-indigo-700 dark:border-yellow-500">
+            <div className="text-[14px] bg-slate-100 dark:bg-neutral-800/30 dark:text-white border-l-4 p-3 border-indigo-700 dark:border-yellow-500">
               <p className="line-clamp-2">{quoteValue}</p>
             </div>
           ) : null}
           {isMe(username) && editing ? (
             <form className="flex flex-col gap-2">
               <textarea
+                aria-label="update comment"
                 autoFocus
                 defaultValue={content}
                 onChange={handleComment}
-                placeholder="Reply to a reply..."
+                placeholder="Edit comment"
                 className={clsx(
                   "text-[14px] relative focus:outline-none focus-within:outline-none focus-within:ring-1 focus-within:ring-indigo-700 dark:focus-within:ring-yellow-500 max-h-[100px] dark:border-[#555] bg-transparent  min-h-[100px] w-full py-2 px-3 border rounded-md"
                 )}
               ></textarea>
-              <Button type="submit" className="ml-auto" onClick={onEdit}>
-                UPDATE
-              </Button>
+              <div className="w-full flex">
+                <div className="ml-auto flex gap-2">
+                  <Button
+                    className="bg-red-200"
+                    onClick={() => setEditing(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button type="submit" className="ml-auto" onClick={onEdit}>
+                    UPDATE
+                  </Button>
+                </div>
+              </div>
             </form>
           ) : (
-            <span className="text-[14px] leading-6">{content}</span>
+            <span className="text-[14px] break-all">{content}</span>
           )}
         </div>
         {!isMe(username) && (

@@ -1,4 +1,4 @@
-import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { CheckCircledIcon, CrossCircledIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Comment from "./components/Comment";
@@ -126,13 +126,16 @@ function App() {
         .replies.filter((r) => r.id !== rId);
       setComments(cms);
     }
+    toast.success("Comment Deleted!", {
+      position: "bottom-right",
+    });
     onCloseModal();
   };
 
   const editComment = (e, id, index) => {
     e.preventDefault();
     let cms = comments.concat();
-    if (id !== cms.at(index).id) {
+    if (id !== cms.at(index).id || comment === "") {
       return;
     }
     cms.at(index).content = comment;
@@ -152,6 +155,21 @@ function App() {
     });
   };
 
+  const getReplyToImage = (replyingTo, cIndex, rIndex) => {
+    let cms = comments.concat();
+
+    if (rIndex === null) {
+      return;
+    }
+
+    if (rIndex === 0) return cms.at(cIndex).user.image.png;
+
+    return cms
+      .at(cIndex)
+      .replies.filter((r) => r.user.username === replyingTo)
+      .at(0).user.image.png;
+  };
+
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
@@ -160,7 +178,7 @@ function App() {
   return (
     <>
       <h1 className="sr-only">Interactive Comment Section</h1>
-      <main className="flex items-center justify-center w-full h-full p-3 lg:p-6 md:py-20 md:px-0 dark:bg-neutral-800">
+      <main className="flex flex-col items-center justify-center w-full h-full p-3 lg:p-6 md:py-20 md:px-0 dark:bg-neutral-800">
         <div className="flex flex-col gap-5 max-w-screen-sm">
           {comments.map((comment, cIndex) => {
             return (
@@ -185,6 +203,11 @@ function App() {
                     <div className="w-0 border-r-2 mx-4 md:mx-6 mt-5 dark:border-r-[#555]" />
                     <div className="flex flex-col gap-5 mt-5 w-full">
                       {comment.replies.map((reply, rIndex) => {
+                        let replyImg = getReplyToImage(
+                          reply.replyingTo,
+                          cIndex,
+                          rIndex
+                        );
                         return (
                           <Reply
                             key={reply.id}
@@ -193,6 +216,7 @@ function App() {
                             username={reply.user.username}
                             content={reply.content}
                             replyingTo={reply.replyingTo}
+                            repImage={replyImg}
                             score={reply.score}
                             cIndex={cIndex}
                             rIndex={rIndex}
@@ -228,8 +252,11 @@ function App() {
         toastStyle={{
           fontFamily: "inherit",
         }}
-        closeButton="text-white"
+        closeButton={<CrossCircledIcon className="text-white h-6 w-6" />}
         progressStyle={{ backgroundColor: "white" }}
+        closeOnClick
+        hideProgressBar
+        pauseOnHover
         icon={<CheckCircledIcon className="text-white h-8 w-8" />}
       />
       <CancelModal

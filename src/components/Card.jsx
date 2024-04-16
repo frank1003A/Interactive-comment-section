@@ -8,7 +8,7 @@ const Card = forwardRef(({ children, className, ...rest }, ref) => {
       {...rest}
       ref={ref}
       className={clsx(
-        "transition-all shadow-sm flex flex-col-reverse md:flex-row bg-white min-h-10 max-w-full rounded-md p-3 gap-3 dark:bg-neutral-700",
+        "transition-all shadow-sm flex flex-col-reverse md:flex-row bg-white min-h-10 min-w-full max-w-full rounded-md p-3 gap-3 dark:bg-neutral-700",
         className
       )}
     >
