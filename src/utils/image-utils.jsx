@@ -1,6 +1,24 @@
 import clsx from "clsx";
+import img1 from "/public/avatars/image-amyrobson.png";
+import img2 from "/public/avatars/image-juliusomo.png";
+import img3 from "/public/avatars/image-maxblagun.png";
+import img4 from "/public/avatars/image-ramsesmiron.png";
 
-export const getImage = (image, name, isHidden = false) => {
+const images = [
+  { name: "amyrobson", img: img1 },
+  { name: "juliusomo", img: img2 },
+  { name: "maxblagun", img: img3 },
+  { name: "ramsesmiron", img: img4 },
+];
+
+const mapImage = (name) => {
+  let avatar = images.filter((img) => img.name === name)[0];
+
+  if (!avatar) return;
+  return avatar.img;
+};
+
+export const getImage = (name, isHidden = false) => {
   return (
     <img
       draggable={false}
@@ -8,7 +26,7 @@ export const getImage = (image, name, isHidden = false) => {
         "h-8 w-8 rounded-full md:block",
         isHidden ? "hidden" : ""
       )}
-      src={image}
+      src={mapImage(name)}
       alt={`${name} avatar`}
     />
   );
