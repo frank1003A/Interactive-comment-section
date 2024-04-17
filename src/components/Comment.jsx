@@ -56,10 +56,7 @@ const Comment = ({
   }, [addReply]);
 
   return (
-    <div
-      id="comment"
-      className="transition-all h-fit flex flex-col relative gap-2"
-    >
+    <div className="transition-all h-fit flex flex-col relative gap-2">
       <Card
         className={clsx(
           "group  z-10 gap-3 animate-in zoom-in relative",

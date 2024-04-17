@@ -73,10 +73,7 @@ const Reply = ({
   }, [addReply]);
 
   return (
-    <div
-      id="replytoreply"
-      className="transition-all h-fit flex flex-col relative gap-2"
-    >
+    <div className="transition-all h-fit flex flex-col relative gap-2">
       <Card className={"group animate-in zoom-in relative z-20  w-full"}>
         <div className="w-full md:w-fit flex items-start justify-between">
           <Score defaultScore={score} />
