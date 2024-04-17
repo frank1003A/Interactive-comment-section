@@ -23,22 +23,20 @@ const Score = ({ defaultScore }) => {
       <div className="flex flex-row-reverse md:flex-col gap-2 justify-between items-center h-full">
         <button
           className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"
-          aria-hidden
           aria-label="Increase score"
           onClick={upScore}
         >
-          <img src={IconPlus} className="font-bold" />
+          <img src={IconPlus} className="font-bold" alt="increase icon" />
         </button>
         <span className="text-[14px] font-bold text-indigo-700 dark:text-yellow-500">
           {score}
         </span>
         <button
           className="h-6 w-6 text-gray-500 dark:text-white  font-bold text-[16px] flex items-center justify-center"
-          aria-hidden
           aria-label="Decrease score"
           onClick={downScore}
         >
-          <img src={IconMinus} className="font-bold" />
+          <img src={IconMinus} className="font-bold" alt="dcrease icon" />
         </button>
       </div>
     </div>

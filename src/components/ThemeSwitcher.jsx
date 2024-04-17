@@ -39,7 +39,6 @@ const ThemeSwitcher = ({ position }) => {
 
   return (
     <button
-      role="button"
       onClick={toggleDarkMode}
       className={clsx(
         " bg-indigo-700 dark:bg-yellow-500 p-2 rounded-md shadow-lg transition-all",
