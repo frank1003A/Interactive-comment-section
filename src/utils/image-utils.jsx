@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import img1 from "/public/avatars/image-amyrobson.png";
-import img2 from "/public/avatars/image-juliusomo.png";
-import img3 from "/public/avatars/image-maxblagun.png";
-import img4 from "/public/avatars/image-ramsesmiron.png";
+import img1 from "/images/avatars/image-amyrobson.png";
+import img2 from "/images/avatars/image-juliusomo.png";
+import img3 from "/images/avatars/image-maxblagun.png";
+import img4 from "/images/avatars/image-ramsesmiron.png";
 
 const images = [
   { name: "amyrobson", img: img1 },
