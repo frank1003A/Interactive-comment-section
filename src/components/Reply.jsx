@@ -4,20 +4,20 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import "tippy.js/animations/scale.css";
 import { currentUser } from "../data/data.json";
-import { getImage } from "../utils/image-utils";
+import { getImage, mapImage } from "../utils/image-utils";
 import { Button, DeleteButton, EditButton, ReplyButton } from "./Buttons";
 import Card from "./Card";
 import ReplyBox from "./ReplyBox";
 import Score from "./Score";
 
 // eslint-disable-next-line react/prop-types
-const ToolTipContent = ({ username, avatar }) => {
+const ToolTipContent = ({ username }) => {
   return (
     <div className="bg-transparent">
       <div className="flex items-center gap-2 justify-center">
         <img
           className="h-8 w-8 rounded-full"
-          src={avatar}
+          src={mapImage(username)}
           alt={`${username}'s avatar`}
         />
         <span className="text-sm font-bold">{username}</span>
@@ -32,7 +32,6 @@ const Reply = ({
   username,
   content,
   replyingTo,
-  repImage,
   score,
   onEdit,
   onDelete,
@@ -166,9 +165,7 @@ const Reply = ({
                   placement="top-start"
                   className="bg-slate-200 border-2 dark:bg-neutral-700 border-indigo-700 dark:border-yellow-500 text-black dark:text-white shadow-xl"
                   arrow={false}
-                  content={
-                    <ToolTipContent username={replyingTo} avatar={repImage} />
-                  }
+                  content={<ToolTipContent username={replyingTo} />}
                 >
                   <span className="text-indigo-700 dark:text-yellow-500 font-bold leading-6">
                     {replyingTo ? `@` + replyingTo + " " : ""}
