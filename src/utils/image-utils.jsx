@@ -11,10 +11,11 @@ const images = [
   { name: "ramsesmiron", img: img4 },
 ];
 
-const mapImage = (name) => {
+export const mapImage = (name) => {
   let avatar = images.filter((img) => img.name === name)[0];
 
   if (!avatar) return;
+
   return avatar.img;
 };
 
