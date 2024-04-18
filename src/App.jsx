@@ -155,21 +155,6 @@ function App() {
     });
   };
 
-  const getReplyToImage = (replyingTo, cIndex, rIndex) => {
-    let cms = comments.concat();
-
-    if (rIndex === null) {
-      return;
-    }
-
-    if (rIndex === 0) return cms.at(cIndex).user.image.png;
-
-    return cms
-      .at(cIndex)
-      .replies.filter((r) => r.user.username === replyingTo)
-      .at(0).user.image.png;
-  };
-
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
@@ -203,11 +188,6 @@ function App() {
                     <div className="w-0 border-r-2 mx-4 md:mx-6 mt-5 dark:border-r-[#555]" />
                     <div className="flex flex-col gap-5 mt-5 w-full">
                       {comment.replies.map((reply, rIndex) => {
-                        let replyImg = getReplyToImage(
-                          reply.replyingTo,
-                          cIndex,
-                          rIndex
-                        );
                         return (
                           <Reply
                             key={reply.id}
@@ -216,7 +196,6 @@ function App() {
                             username={reply.user.username}
                             content={reply.content}
                             replyingTo={reply.replyingTo}
-                            repImage={replyImg}
                             score={reply.score}
                             cIndex={cIndex}
                             rIndex={rIndex}
